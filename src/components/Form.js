@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useForm } from '../hooks/useForm';
 
 const Form = ({ createCita }) => {
@@ -81,6 +82,10 @@ const Form = ({ createCita }) => {
       </form>
     </>
   );
+};
+
+Form.propTypes = {
+  createCita: PropTypes.func.isRequired,
 };
 
 export default Form;

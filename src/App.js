@@ -2,8 +2,9 @@ import Form from './components/Form';
 import { useCitas } from './hooks/useCitas';
 import { useEffect } from 'react';
 import CitaItem from './components/CitaItem';
+
 const ls = localStorage;
-const initialState = () => JSON.parse(ls.getItem('citas') || []);
+const initialState = () => JSON.parse(ls.getItem('citas')) || [];
 
 const App = () => {
   const { cita, createCita, deleteCita } = useCitas(initialState);

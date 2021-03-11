@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const CitaItem = ({ cita, deleteCita }) => {
   return (
     <>
@@ -26,6 +28,11 @@ const CitaItem = ({ cita, deleteCita }) => {
       </div>
     </>
   );
+};
+
+CitaItem.propTypes = {
+  cita: PropTypes.array.isRequired,
+  deleteCita: PropTypes.func.isRequired,
 };
 
 export default CitaItem;
