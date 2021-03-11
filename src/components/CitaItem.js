@@ -31,7 +31,7 @@ const CitaItem = ({ cita, deleteCita }) => {
 };
 
 CitaItem.propTypes = {
-  cita: PropTypes.array.isRequired,
+  cita: PropTypes.object.isRequired,
   deleteCita: PropTypes.func.isRequired,
 };
 
