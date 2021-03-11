@@ -1,8 +1,16 @@
 import Form from './components/Form';
 import { useCitas } from './hooks/useCitas';
+import { useEffect } from 'react';
 import CitaItem from './components/CitaItem';
+const ls = localStorage;
+const initialState = () => JSON.parse(ls.getItem('citas') || []);
+
 const App = () => {
-  const { cita, createCita, deleteCita } = useCitas();
+  const { cita, createCita, deleteCita } = useCitas(initialState);
+  useEffect(() => {
+    ls.setItem('citas', JSON.stringify(cita));
+  }, [cita]);
+
   return (
     <>
       <h1>Administrador de pacientes</h1>
@@ -18,7 +26,7 @@ const App = () => {
                 <CitaItem cita={cita} key={cita.id} deleteCita={deleteCita} />
               ))
             ) : (
-              <p>No hay citas</p>
+              <h2>No hay citas</h2>
             )}
           </div>
         </div>
